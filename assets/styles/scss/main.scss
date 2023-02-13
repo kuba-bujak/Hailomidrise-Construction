@@ -1,0 +1,407 @@
+@import 'config', 'menu', 'animations', 'footer';
+
+body {
+	font-family: $main-font-family;
+	color: $main-font-color;
+
+	overflow-x: hidden;
+}
+
+main {
+	min-height: 100vh;
+}
+
+.header-slider {
+	width: 100%;
+	height: 100vh;
+	margin-top: -80px;
+	padding-top: 80px;
+	color: $light-font-color;
+
+	background: linear-gradient(90deg, rgba(11,37,75,0.9) 0%, rgba(11,18,19,0.5032387955182073) 100%),  url('../../img/people-while-constructing.jpeg') no-repeat center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	display: grid;
+	align-content: center;
+
+	.row {
+		text-align: left;
+		gap: 2rem;
+	}
+
+	&__columns {
+		&--1 {
+
+			display: flex;
+			flex-direction: column;
+			gap: 2em;
+
+			animation-name: slide-to-right;
+			animation-duration: 1s;
+			animation-timing-function: ease-in-out;
+
+			.slider-text-header {
+				font-size: 2.8em;
+				font-weight: 300;
+			}
+
+			.slider-text-content {
+				font-size: 1.2em;
+				font-weight: 300;
+				border-left: 1px solid $second-font-color;
+				padding-left: 1rem;
+				line-height: 2em;
+				
+			}
+	
+			.slider-btn {
+				width: 240px;
+				text-align: center;
+				background-color: $second-font-color;
+				padding: 1rem 2rem;
+				border: 1px solid $second-font-color;
+				transition: all 0.5s ease;
+	
+				&:hover {
+					color: $second-font-color;
+					background:rgba(0, 0, 0, 0);
+					border: 1px solid $second-font-color;
+				}
+			}
+		}
+		
+		&--2 {
+
+			.notes-row-container {
+				display: flex;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 50%;
+				gap: 0;
+
+				.note {
+					width: 50%;
+					height: 140px;
+					padding: 2em;
+					display: flex;
+					align-items: center;
+					gap: 2em;
+					transition: all 0.2s ease-in-out;
+
+					&__image {
+						font-size: 2.2em;
+					}
+
+					&__text {
+						h4 {
+							font-size: 1.2em;
+							margin-bottom: 0.4em;
+						}
+					}
+
+					&:hover {
+						padding-top: 1em;
+					}
+				}
+
+				.note-location {
+					background-color: $menu-background-color;
+				
+					
+					
+				}
+
+				.note-message {
+					background-color: $second-background-color;
+
+
+					
+				}
+
+				animation-name: slide-to-left;
+				animation-duration: 1s;
+				animation-timing-function: ease-in-out;
+			}
+		}
+	}
+}
+
+.about-section {
+	color: $main-font-color;
+	.about-row {
+		gap: 2em;
+		&__column-2 {
+
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+
+			.about {
+
+				&__header {
+					font-size: 2em;
+				}
+
+				&__subheader {
+					color: rgb(153, 153, 153);
+					font-size: 1.4em;
+				}
+
+				&__text {
+					text-align: justify;
+				}
+			}
+		}
+
+		&__column-1 {
+			justify-content: center;
+			text-align: center;
+			
+		
+
+			.image-container {
+				height: 400px;
+			}
+
+			.image-2 {
+				background: url('../../img/owner.jpeg') no-repeat center;
+				background-size: cover;
+				margin: auto;
+				width: 100%;
+				position: relative;
+				position: relative;
+				box-shadow: -1em 1em $second-font-color;
+			}
+		}
+	}
+}
+
+.history-section {
+	color: $main-font-color;
+
+	.row-history--1 {
+		margin-bottom: 3em;
+		.row-history__column-1 {
+
+			.history__header {
+				text-align: center;
+				font-size: 2em;
+			}
+		}
+	}
+
+	.row-history--2 {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+		grid-template-rows: repeat(5, minmax(10vh, min-content));
+		grid-gap: 15px;
+
+		.gallery__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+	  }
+
+	  .gallery__note {
+		color: $light-font-color;
+		padding: 3em 2em;
+
+			&--header {
+				font-weight: normal;
+				font-size: 1.6em;
+				line-height: 1.5em;
+				margin-bottom: 1em;
+			}
+	  }
+
+	  .gallery__item {
+		animation-name: appearing;
+  		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+	  }
+
+	  .gallery__item--1 {
+			grid-column-start: 1;
+			grid-column-end: 3;
+			grid-row-start: 1;
+			grid-row-end: 3;
+  		}
+
+		.gallery__item--2 {
+			grid-column-start: 3;
+			grid-column-end: 5;
+			grid-row-start: 1;
+			grid-row-end: 4;
+			background-color: $main-font-color;
+	  }
+
+	  .gallery__item--3 {
+			grid-column-start: 5;
+			grid-column-end: 9;
+			grid-row-start: 1;
+			grid-row-end: 6;
+		}
+
+		.gallery__item--4 {
+			grid-column-start: 1;
+			grid-column-end: 3;
+			grid-row-start: 3;
+			grid-row-end: 6;
+			background-color: $menu-background-color;
+	  }
+
+	  .gallery__item--5 {
+		grid-column-start: 3;
+		grid-column-end: 5;
+		grid-row-start: 4;
+		grid-row-end: 6;
+  		}
+	}
+}
+
+.offer-section {
+	.row-offer {
+
+		margin-bottom: 4em;
+		&__column-1 {
+			.offer-header {
+				font-size: 2em;
+				text-align: center;
+				margin-bottom: 1.5rem;
+			}
+
+			.offer-content {
+				text-align: center;
+				margin-bottom: 1em;
+			}
+
+			.subheader {
+				text-align: center;
+				font-size: 1.6em;
+				margin-top: 2em;
+			}
+
+			.offer-icons {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				margin: auto;
+				margin-top: 4em;
+				justify-content: space-between;
+				gap: 1em;
+
+				.offer-icon__container {
+					width: 100%;
+					text-align: center;
+					padding: 2em;
+					border: 1px solid $main-background-color;
+					background-color: $main-background-color;
+					cursor: pointer;
+					transition: all 0.5s ease-in-out;
+
+					&--icon {
+						font-size: 4em;
+						margin-bottom: 1.6rem;
+						color: $second-font-color;
+					}
+
+					&--title {
+						font-size: 1.2em;
+						color: $main-font-color;
+						transition: all 0.5s ease-in-out;
+					}
+
+					&:hover .offer-icon__container--title {
+						color: $second-font-color;
+					}
+				}
+
+			
+			}
+		}
+	}
+
+	.row-offer-2 {
+		width: 90%;
+		margin: auto;
+		gap: 2em;
+
+		&__column {
+			height: 90vh;
+			width: 100%;
+			background: no-repeat center;
+			background-size: cover;
+			border-radius: 20px;
+		}
+
+		.column--first {
+			background-image: url('../../img/school-indoor.jpg');
+		}
+
+		.column--second {
+			background-image: url('../../img/hospital-indoor.jpg');
+		}
+
+		.column--third {
+			background-image: url('../../img/office-indoor.jpg');
+		}
+	}
+}
+
+.contact-section {
+	.row-contact {
+		margin-bottom: 4em;
+
+		&__column-1 {
+			.contact-header {
+				text-align: center;
+				font-size: 2em;
+			}
+		}
+	}
+
+	.row-contact-2 {
+		gap: 2em;
+
+		&__columns {
+			height: 50vh;
+		}
+
+
+		.column--second {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+
+			justify-content: center;
+			.contact {
+				&--text-header {
+					font-size: 1.6em;
+				}
+
+				&--text-content {
+					font-weight: lighter;
+					font-size: 1.4em;
+					color: $second-font-color
+				}
+
+				&--address {
+					a {
+						color: $second-font-color;
+						transition: all 0.5s ease-in-out;
+					}:hover {
+						color: $main-font-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@import 'responsive'
+
